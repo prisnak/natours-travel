@@ -47,7 +47,7 @@ body {
 }
 
 .logo-box {
-  /* absolute is to specify we are positioning this element and we always need to inform where, so that's why we inform the bottom and left (the object this logo box will take as reference is the header */
+  /* absolute is to specify we are positioning this element and we always need to inform where, so that's why we inform the top and left (the object this logo box will take as reference is the header */
   position: absolute;
   top: 40px;
   left: 40px;
@@ -145,15 +145,9 @@ body {
   text-decoration: none;
   padding: 15px 40px;
   display: inline-block;
-  border-radius: 100px;
-  transition: all 0.2s;
-  box-shadow: 0 20px 5px rgba(0, 0, 0, 0.2);
 }
-
 .btn:hover {
-  transform: translateY(-3px);
 }
 
 .btn:active {
-  transform: translateY(-1px);
 }
