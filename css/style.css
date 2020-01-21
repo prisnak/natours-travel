@@ -132,6 +132,18 @@ body {
   }
 }
 
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
 .btn-white {
   background-color: #fff;
   color: #777;
@@ -147,13 +159,52 @@ body {
   display: inline-block;
   border-radius: 100px;
   transition: all 0.2s;
-  box-shadow: 0 20px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
 .btn:hover {
   transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .btn:active {
   transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
+/* this element is a child of the original button and uses it as a reference*/
+.btn::after {
+  content: "";
+  display: inline-block;
+  /* it uses the height and width of the original button as a reference */
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* z-index defines the position of the element if there's one on top of another  */
+  /* and -1 is to put it in the back of the other element */
+  z-index: -1;
+  /* transition always needs to be added in the original state */
+  transition: all 0.4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  /* defines a transformation that resizes an element */
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-animated {
+  animation: moveInBottom 0.5s ease-out 0.7s;
 }
